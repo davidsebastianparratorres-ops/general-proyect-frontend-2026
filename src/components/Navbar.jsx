@@ -9,7 +9,17 @@ const DESTINOS = {
   equipos: "#equipos",
 };
 
-const Navbar = ({ textos, cargando, cambiarIdioma, activo, error, idioma, onBuscar, textoGrande, alternarTexto }) => {
+const Navbar = ({
+  textos,
+  cargando,
+  cambiarIdioma,
+  activo,
+  error,
+  idioma,
+  onBuscar,
+  textoGrande,
+  alternarTexto,
+}) => {
   const [abierto, setAbierto] = useState(false); //Saber si el toogle de mobile esta abierto
   const [busqueda, setBusqueda] = useState(""); //sin valor a buscar
   const botonMenu = useRef(null);
@@ -64,7 +74,7 @@ const Navbar = ({ textos, cargando, cambiarIdioma, activo, error, idioma, onBusc
           onClick={() => setAbierto(false)}
         >
           <span className="navbar-simbolo" aria-hidden="true">
-            R
+            H
           </span>
           <span>{nav?.logo.texto ?? "Heroes"} </span>
         </a>
@@ -101,22 +111,96 @@ const Navbar = ({ textos, cargando, cambiarIdioma, activo, error, idioma, onBusc
             <Icono nombre={abierto ? "cerrar" : "menu"} />
           </button>
         </div>
-        <div id="navbar-panel" className={`navbar-panel${abierto ? " is-abierto" : ""}`} aria-busy={cargando}>
-          {cargando && <p className="navbar-estado" role="status">{ingles ? "Loading navigation…" : "Cargando navegación…"}</p>}
-          {error && <div className="navbar-estado" role="alert"><p>{ingles ? "Navigation could not be loaded." : "No pudimos cargar el menú."}</p><button type="button" onClick={recargar}>{ingles ? "Try again" : "Reintentar"}</button></div>}
-          {nav && <>
-            <ul className="navbar-enlaces">
-              {enlaces.map(([clave, etiqueta]) => <li key={clave}><a href={DESTINOS[clave]} aria-current={activo === clave ? "page" : undefined} onClick={() => setAbierto(false)}>{etiqueta}</a></li>)}
-            </ul>
-            <form className="navbar-buscador" role="search" aria-label={nav.buscador.aria} onSubmit={buscar}>
-              <button type="submit" aria-label={nav.buscador.boton}><Icono nombre="buscar" /></button>
-              <input ref={campoBusqueda} type="search" value={busqueda} onChange={(evento) => setBusqueda(evento.target.value)} placeholder={nav.buscador.placeholder} aria-label={nav.buscador.aria} required />
-            </form>
-          </>}
+        <div
+          id="navbar-panel"
+          className={`navbar-panel${abierto ? " is-abierto" : ""}`}
+          aria-busy={cargando}
+        >
+          {cargando && (
+            <p className="navbar-estado" role="status">
+              {ingles ? "Loading navigation…" : "Cargando navegación…"}
+            </p>
+          )}
+          {error && (
+            <div className="navbar-estado" role="alert">
+              <p>
+                {ingles
+                  ? "Navigation could not be loaded."
+                  : "No pudimos cargar el menú."}
+              </p>
+              <button type="button" onClick={recargar}>
+                {ingles ? "Try again" : "Reintentar"}
+              </button>
+            </div>
+          )}
+          {nav && (
+            <>
+              <ul className="navbar-enlaces">
+                {enlaces.map(([clave, etiqueta]) => (
+                  <li key={clave}>
+                    <a
+                      href={DESTINOS[clave]}
+                      aria-current={activo === clave ? "page" : undefined}
+                      onClick={() => setAbierto(false)}
+                    >
+                      {etiqueta}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <form
+                className="navbar-buscador"
+                role="search"
+                aria-label={nav.buscador.aria}
+                onSubmit={buscar}
+              >
+                <button type="submit" aria-label={nav.buscador.boton}>
+                  <Icono nombre="buscar" />
+                </button>
+                <input
+                  ref={campoBusqueda}
+                  type="search"
+                  value={busqueda}
+                  onChange={(evento) => setBusqueda(evento.target.value)}
+                  placeholder={nav.buscador.placeholder}
+                  aria-label={nav.buscador.aria}
+                  required
+                />
+              </form>
+            </>
+          )}
           <div className="navbar-utilidades">
-            <label className="navbar-idioma"><Icono nombre="idioma" /><select value={idioma} onChange={(evento) => cambiarIdioma(evento.target.value)} aria-label={nav?.aria.idioma ?? "Cambiar idioma"}><option value="es">ES</option><option value="en">EN</option></select></label>
-            <button className="navbar-icono navbar-accesibilidad" type="button" aria-label={ingles ? "Enlarge text" : "Aumentar texto"} aria-pressed={textoGrande} onClick={alternarTexto}><Icono nombre="accesibilidad" /></button>
-            {nav && <a className="navbar-accion" href="#favoritos" onClick={() => setAbierto(false)}>{nav.botones.favoritos}</a>}
+            <label className="navbar-idioma">
+              <Icono nombre="idioma" />
+              <select
+                value={idioma}
+                onChange={(evento) => cambiarIdioma(evento.target.value)}
+                aria-label={nav?.aria.idioma ?? "Cambiar idioma"}
+              >
+                
+                <option value="es">ES</option>
+                <option value="en">EN</option>
+              </select>
+              <Icono nombre="flechaAbajo"/>
+            </label>
+            <button
+              className="navbar-icono navbar-accesibilidad"
+              type="button"
+              aria-label={ingles ? "Enlarge text" : "Aumentar texto"}
+              aria-pressed={textoGrande}
+              onClick={alternarTexto}
+            >
+              <Icono nombre="accesibilidad" />
+            </button>
+            {nav && (
+              <a
+                className="navbar-accion"
+                href="#favoritos"
+                onClick={() => setAbierto(false)}
+              >
+                {nav.botones.favoritos}
+              </a>
+            )}
           </div>
         </div>
       </nav>

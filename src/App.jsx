@@ -60,6 +60,20 @@ function App() {
         texto={textoGrande}
         alternarTexto={() => setTextoGrande((valor) => !valor)}
       />
+      <main className="contenedor demo-contenido">
+        <p>{  ingles?"Elglish content":"Contenido español"}</p>
+        <h1>{titulo ?? (ingles?"Navegation":"Navegacion")}</h1>
+        <p role="status">
+          {consulta?`${ingles?"Search submitted":"Busqueda enviada"}:${consulta}`
+          :ingles
+          ? "Select a link"
+          :"Selecciona un link"}
+        </p>
+        <p>
+          {ingles? "this example loads navegation":"este ejemplo carga los textos del menu desde la api"}
+        </p>
+
+      </main>
     </>
   );
 }
