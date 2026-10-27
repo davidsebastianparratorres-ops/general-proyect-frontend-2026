@@ -9,7 +9,7 @@ function leerSeccion() {
 }
 
 function App() {
-  // Idiom por defecto español
+  // Idioma por defecto español
   const [idioma, setIdioma] = useState("es");
   const [activo, setActivo] = useState(leerSeccion);
   const [consulta, setConsulta] = useState("");
