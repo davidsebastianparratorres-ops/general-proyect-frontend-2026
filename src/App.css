@@ -1,6 +1,30 @@
-.sitio {
-    min-height: 100vh;
-    min-height: 100dvh;
-    display: flex;
-    flex-direction: column;
+.pagina{
+    width: min(100% -2rem), 64rem;
+    margin-inline: auto;
+    padding-block: 2rem 3rem;
+}
+
+.pagina-encabezado h1{
+    margin: 0 0 0.25rem;
+    font-size: clam(1.75rem, 1.4rem + 1.5vw, 2.5rem)
+}
+
+.pagina-encabezado p{
+    margin: 0;
+    color: var(--color-texto-suave)
+}
+
+.pagina-formularios {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2rem;
+
+}
+
+@media (min-width: 48rem) {
+    .pagina-formularios {
+        grid-template-columns: repeat(auto-fit, minmax(20rem,1fr));
+        align-items: start;
+
+    }
 }
