@@ -14,15 +14,15 @@
   --color-foco: #7326f9;
   --radio: 0.5rem;
 
-  font-family:
-    "Instrumen Sans",
-    system-ui,
-    -apple-system,
-    "Segoe UI",
-    sans-serif;
-  line-height: 1.5;
-  color: var(--color-texto);
-  background: var(--color-fondo);
+    font-family:
+        "Instrumen Sans",
+        system-ui,
+        -apple-system,
+        "Segoe UI",
+        sans-serif;
+        line-height: 1.5;
+        color: var(--color-texto);
+        background: var(--color-fondo);
   
 }
 
