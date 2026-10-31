@@ -17,6 +17,12 @@ const App = () => {
             type="email"
             ayuda="ingresa tu correo institucional"
           />
+          <Campo
+            etiqueta="Contraseña"
+            type="password"
+            ayuda="contraseña institucional"
+            error="La contraseña es requerida"
+          />
         </div>
       </main>
     </>
