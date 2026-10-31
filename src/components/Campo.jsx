@@ -1,10 +1,13 @@
 import React, { useId } from "react";
+import "./Campo.css"
 
-const Campo = ({etiqueta, ayuda, error}) => {
-  const id = useIdd()
-    const idAyuda = "${id}-ayuda"
-    const idError = "${id}-error"
-    const description = [ayuda && idAyuda, error && idError].filter(Boolean).join() 
+const Campo = ({ etiqueta, ayuda, error, ...atributos }) => {
+  const id = useId();
+  const idAyuda = "${id}-ayuda";
+  const idError = "${id}-error";
+  const description = [ayuda && idAyuda, error && idError]
+    .filter(Boolean)
+    .join();
 
   return (
     <>
@@ -15,10 +18,20 @@ const Campo = ({etiqueta, ayuda, error}) => {
             {ayuda}
           </p>
         )}
+        <input
+          id={id}
+          aria-invalid={error ? "true" : "false"}
+          aria-describedby={description || undefined}
+          {...atributos}
+        />
+        {error && (
+          <p id={idError} className="campo-error">
+            {error}
+          </p>
+        )}
       </div>
     </>
-  )
-
+  );
 };
 
 export default Campo;
