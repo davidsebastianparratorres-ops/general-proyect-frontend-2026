@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap");
 
 :root {
   --color-fondo: #f7f7f7;
@@ -42,3 +42,20 @@ button, input{
     outline: 3px solid var(--color-foco);
     outline-offset: 2px;
 }
+ */
+
+index.css:
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, sans-serif; color: #202b38; background: #fff; line-height: 1.6; }
+.sitio { min-height: 100vh; display: flex; flex-direction: column; }
+.cabecera, .pie { padding: 20px; background: #edf2f7; }
+nav { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+a { color: #164e92; text-underline-offset: 4px; }
+nav a.active { font-weight: 700; text-decoration-thickness: 3px; }
+.contenido { flex: 1; width: 100%; max-width: 960px; margin: auto; padding: 24px; }
+h1 { font-size: 1.75rem; line-height: 1.25; }
+p { max-width: 65ch; }
+button { font: inherit; padding: 10px 16px; background: #164e92; color: #fff; border: 0; border-radius: 6px; cursor: pointer; }
+button:hover { background: #103b70; }
+:focus-visible { outline: 3px solid #a34800; outline-offset: 4px; }
+.pie { overflow-wrap: anywhere; }
