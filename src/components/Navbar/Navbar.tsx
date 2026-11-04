@@ -11,6 +11,21 @@ const Navbar = ({
         <strong>Taquilla</strong>
         <NavLink to="/">Inicio</NavLink>
         <NavLink to="/acercade">Acerca de</NavLink>
+        {usuario ? (
+          <>
+           <span>Hola, {usuario.nombre}</span>
+           
+            <button type="button" onClick={cerrarSesion}>
+             Cerrar sesión
+            </button>
+        
+          </>
+        ) : (
+          <NavLink to="/login">Iniciar sesión</NavLink>
+        )}
+       
+
+
 
       </nav>
     </header>
