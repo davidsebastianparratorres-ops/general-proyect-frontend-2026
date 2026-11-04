@@ -44,7 +44,7 @@ button, input{
 }
  */
 
-index.css:
+
 * { box-sizing: border-box; }
 body { margin: 0; font-family: system-ui, sans-serif; color: #202b38; background: #fff; line-height: 1.6; }
 .sitio { min-height: 100vh; display: flex; flex-direction: column; }
