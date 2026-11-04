@@ -4,7 +4,7 @@ import { Sesion } from "../model";
 import { Outlet } from "react-router-dom";
 import { Footer } from "../components/footer/Fotter";
 
-const PublicLayout = ({ usuario, iniciarSesion, cerrarSesion, cambiarContrasenia }: Sesion) => {
+const PublicLayout = ({ usuario, iniciarSesion, cerrarSesion }: Sesion) => {
   return (
     <div className="sitio">
       <Navbar usuario={usuario} cerrarSesion={cerrarSesion} />
@@ -16,7 +16,7 @@ const PublicLayout = ({ usuario, iniciarSesion, cerrarSesion, cambiarContrasenia
         </p>
 
         <Outlet
-          context={{ usuario, iniciarSesion, cerrarSesion, cambiarContrasenia } satisfies Sesion}
+          context={{ usuario, iniciarSesion, cerrarSesion } satisfies Sesion}
         ></Outlet>
       </main>
       <Footer/>

@@ -10,7 +10,7 @@ const Navbar = ({
       <nav aria-label="Navegación principal">
         <strong>Taquilla</strong>
         <NavLink to="/">Inicio</NavLink>
-        <NavLink to="/acercade">Acerca de</NavLink>
+        <NavLink to="/about">Acerca de</NavLink>
         {usuario ? (
           <>
            <span>Hola, {usuario.nombre}</span>
