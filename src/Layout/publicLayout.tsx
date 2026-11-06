@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar/Navbar";
 import { Sesion } from "../model";
 import { Outlet } from "react-router-dom";
-import { Footer } from "../components/footer/Fotter";
+import { Footer } from "../components/Footer/Footer";
 
 const PublicLayout = ({ usuario, iniciarSesion, cerrarSesion }: Sesion) => {
   return (
@@ -19,7 +19,7 @@ const PublicLayout = ({ usuario, iniciarSesion, cerrarSesion }: Sesion) => {
           context={{ usuario, iniciarSesion, cerrarSesion } satisfies Sesion}
         ></Outlet>
       </main>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
